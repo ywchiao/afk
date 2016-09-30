@@ -1,16 +1,16 @@
 
 var http = require('http');
 
-http.createServer(function (request, response) {
-    // Send the HTTP header
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    response.writeHead(200, {
-        'Content-Type': 'text/plain'
-    });
+http.createServer((request, response) => {
+    let fs = require('fs')
 
-    // Send the response body
-    response.end('Hello World!\n');
+    fs.readFile('index.html', (err, data) => {
+        response.writeHead(200, {
+            'Content-Type': 'text/html'
+        });
+        response.write(data);
+        response.end();
+    });
 }).listen(8081);
 
 // log message to Console

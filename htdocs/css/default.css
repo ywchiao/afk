@@ -48,8 +48,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-  height: 1em;
-  line-height: 1em;
+  height: 2em;
+  line-height: 2em;
   padding: 0 .5em;
 }
 
@@ -326,6 +326,11 @@ button:last-child {
   text-align: center;
   width: 25%;
   z-index: 99;
+}
+
+.pane header {
+  border-bottom: 1px solid black;
+  margin: 0 0 0.5em 0;
 }
 
 .cell {

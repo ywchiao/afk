@@ -1,0 +1,343 @@
+
+html {
+  font-size: 20px;
+  height: 100%;
+}
+
+article {
+}
+
+aside {
+}
+
+body {
+  display: relative;
+  padding: 0;
+  margin: 4em .5em 0 .5em;
+  min-height: 100%;
+}
+
+button {
+  display: inline-block;
+  line-height: calc(100%);
+  min-width: 7em;
+  margin: .25em;
+  padding: .25em;
+  border-radius: 4px;
+}
+
+footer {
+  height: 1.2em;
+  line-height: 1.2em;
+  padding: 0 2em;
+}
+
+form {
+  display: table;
+  padding: .5em 1em;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #efefef;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: inline-block;
+  margin: 0;
+}
+
+header {
+  height: 1em;
+  line-height: 1em;
+  padding: 0 .5em;
+}
+
+input {
+  float: right;
+  width: 10em;
+  height: 1em;
+  line-height: 1em;
+  margin: .25em .25em;
+  border-radius: 2px;
+  background-color: #bbbbbb;
+}
+
+label {
+  float: left;
+}
+
+nav {
+  height: 1em;
+  padding: 0 .5em;
+  vertical-align: middle;
+}
+
+p {
+}
+
+section {
+}
+
+select {
+  float: right;
+  width: 10em;
+  height: 1.5em;
+  margin: .25em .25em;
+  border-radius: 2px;
+  background-color: #bbbbbb;
+}
+
+@keyframes slide_in {
+  from {width: 82.5%;}
+  to {width: 100%;}
+}  
+
+@keyframes slide_out {
+  from {width: 100%;}
+  to {width: 82.5%;}
+}
+
+body > nav {
+  position: fixed;
+  z-index: 9;
+  height: 2em;
+  width: calc(100% - 2em);
+  top: 2em;
+  margin: 0;
+  padding: 0 .5em;
+  background-color: antiquewhite;
+  box-shadow: 0px 2px;
+}
+
+nav > ul > li {
+  display: inline-block;
+  height: 2em;
+  min-width: 4em;
+  line-height: 2em;
+  text-align: center;
+  padding: 0px .5em;
+  margin: 0px .25em;
+  border: none;
+  background-color: bisque;
+}
+
+nav > ul > li:hover {
+  background-color: #dfdfdf;
+}
+
+button:last-child {
+  margin-top: 2em;
+}
+
+.site_header {
+  position: fixed;
+  width: calc(100% - 2em);
+  height: 2em;
+  line-height: 2em;
+  z-index: 9;
+  top: 0;
+  margin: 0;
+  padding: 0 .5em;
+  background-color: darkolivegreen;
+}
+
+.site_header > aside > h1 {
+  color: coral;
+}
+
+.site_header > aside > h5 {
+  color: antiquewhite;
+}
+
+.site_footer {
+  position: fixed;
+  z-index: 9;
+  float: left;
+  height: 1.2em;
+  line-height: 1.2em;
+  width: calc(100% - 5em);
+  padding: 0 2em;
+  left: .5em;
+  bottom: 0;
+  background-color: #472f17;
+}
+
+.site_footer > h4 {
+  float: right;
+  color: burlywood;
+}
+
+.nav_main {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  border-radius: 12px;
+  border: 1 solid azure; 
+  padding: .25em .5em;
+  margin: 1em 3em;
+  box-shadow: 3px 5px;
+  background-color: #ffefcf;
+  opacity: .75;
+  text-align: center;
+}
+
+.card_header {
+  position: relative;
+  margin: 1em 0 .25em 0;
+}
+
+.card_header > h1 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+}
+
+.card_header > h5 {
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+
+.card_nav {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.card_nav > ul {
+  margin: .25em;
+  padding: 0;
+}
+
+.card_nav > ul > li {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  position: relative;
+}
+
+.card_content {
+  margin: .25em;
+  padding: 1em 0;
+  border-top: 3px solid #aaaacc;
+  border-bottom: 3px solid #aaaacc;
+}
+
+.field {
+  width: 14em;
+  height: 1.5em;
+  line-height: 1.5em;
+  margin: .25em .25em;
+  padding: .25em;
+  background-color: #cccccc;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  padding: 0;
+}
+
+.sidebar {
+  position: absolute;
+  top: 4em;
+  left: .5em;
+  width: 17.5%;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
+  background-color: #c7d0d7
+}
+
+.contents {
+  float: right;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  background-color: #dfdfff;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+}
+
+.icono-hamburger {
+  color: dimgrey;
+}
+
+#mnu_hamburger{
+  float: right;
+}
+
+.icono-tiles {
+  color: dimgrey;
+}
+
+#mnu_tiles{
+  float: left;
+}
+
+.icono-caretDownSquare {
+  color: dimgrey;
+}
+
+.icono-caretDown {
+  height: 1.2em;
+  color: dimgrey;
+}
+
+.icono-caretUpSquare {
+  color: dimgrey;
+}
+
+.icono-caretUp {
+  height: 1.2em;
+  color: dimgrey;
+}
+
+.form_toggle {
+  visibility: hidden;
+}
+
+.form_closed {
+  position: absolute;
+  right: .25em;
+  visibility: hidden;
+}
+
+.form_openned {
+  position: absolute;
+  right: .25em;
+  visibility: visible;
+}
+
+.pane {
+  border-radius: 12px;
+  border: 1 solid azure;
+  padding: .25em .5em;
+  margin: 1em 1em;
+  box-shadow: 3px 5px;
+  background-color: #d3dcd3;
+  opacity: .950;
+  text-align: center;
+  width: 25%;
+  z-index: 99;
+}
+
+.cell {
+  display: inline-block;
+  border-radius: 2px;
+  padding: 1px 1px;
+  margin: 2px 1px;
+  background-color: #f0e0c0;
+  opacity: .75;
+  text-align: center;
+  min-width: 4em;
+  width: 4em;
+  min-height: 4em;
+  height: 4em;
+}

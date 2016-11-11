@@ -1,72 +1,67 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatiable" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFK : Away From Kansas</title>
+    <meta name="description" content="">
+    <meta name="author" content="Yiwei Chiao">
+    <link
+      type="text/css"
+      href="css/icono.css"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      href="css/default.css"
+      rel="stylesheet"
+    />
+    <script src="libs/jquery.js"></script>
+    <script src="js/afk.js"></script>
   </head>
-  <body>
-    <header id="page_top">
-      <h1 class="irontext">HEADER</h1>
-      <h3>基本網頁框架</h3>
+  <body onload="init()">
+    <header class="site_header">
+      <aside>
+        <h1>AFK</h1>
+        <h5>: <i>away from Kansas.</i></h5>
+      </aside>
     </header>
-    <nav>
-      <h2>NAV</h2>
-      <h3>功能表單 navigation</h3>
-      <ul>
-        <li id="sec1">第一頁
-          <ul class="drop_box" id="drop_1">
-            <li><a href="#sec1">Section 1</a></li>
-          </ul>
-        </li>
-        <li>第二頁
-          <ul class="drop_box" id="drop_2">
-            <li><a href="#sec2">Section 2</a></li>
-          </ul>
-        </li>
-        <li>第三頁
-          <ul class="drop_box" id="drop_3">
-            <li><a href="#sec3">Section 3</a></li>
-          </ul>
-        </li>
-        <li>第四頁</li>
-        <li>第五頁</li>
-        <li id="about">關  於
-          <ul class="drop_box" id="drop_about">
-            <li>小組成員</li>
-            <li>工作分工</li>
-          </ul>
+    <nav id="nav_main">
+      <ul class="nav_main" id="nav_home">
+        <li id="mnu_hamburger">
+          <p class="icono-hamburger"></p>
         </li>
       </ul>
     </nav>
-    <div class="flexbox">
-      <aside>
-        <h2 class="irontext">ASIDE</h2>
-        <h3>側欄</h3>
-      </aside>
-      <article>
-        <h2 class="bluetext">ARTICLE</h2>
-        主題文件
-        <section class="browntext" id="sec1">
-          <h2 class="redtext">SECTION</h2>
-          第一小節
-          <img src="png/preview2.png" alt="grass-and-water"
+    <article class="contents" id="article">
+      <section class="card">
+        <img src="png/preview2.png" alt="grass-and-water"
              width="80%" height="360">
-          <button type="button">
-            <a href="#page_top">回上方</a>
-          </button>
-        </section>
-        <section class="browntext milky" id="sec2">
-          <h2 class="redtext">SECTION</h2>
-          第二小節
-        </section>
-        <section class="browntext milky" id="sec3">
-          <h2 class="redtext">SECTION</h2>
-          第三小節
-        </section>
-      </article>
-    </div>
-    <footer class="lighttext">
-      <h2 class="blacktext">FOOTER</h2>
-      <small>&copy; Copyright 2016，佛光大學創意與科技學院<small>
+      </section>
+      <section class="pane" id="afk_toolbox">
+        <header>
+          <div id="mnu_tiles">
+            <p class="icono-tiles"></p>
+            Tiles Toolbox
+          </div>
+        </header>
+        <hr/>
+        <div class="cell">32</div>
+        <div class="cell">64</div>
+        <div class="cell">16</div>
+        <div class="cell">96</div>
+        <div class="cell">48</div>
+        <div class="cell">80</div>
+        <div class="cell">00</div>
+        <div class="cell">08</div>
+        <hr/>
+      </section>
+    </article>
+    <aside class="sidebar">
+    </aside>
+    <footer class="site_footer">
+      <h4>&copy; 2016, 佛光大學資訊應用學系</h4>
     </footer>
   </body>
 </html>

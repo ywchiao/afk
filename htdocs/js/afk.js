@@ -1,43 +1,37 @@
 /**
  *  @file       afk.js
- *  @brief      The main file of the afk.
+ *  @brief      The entry file of afk.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
- *  @date       11/11/2016 last modified.
- *  @date       11/11/2015 created.
+ *  @date       11/11/2016 created.
+ *  @date       11/17/2016 last modified.
  *  @version    0.1.0
- *  @section    License (The MIT License)
- *
- *  Copyright (c) 2016, Yiwei Chiao
- *  All rights reserved.
- *
- *  Permission is hereby granted, free of charge, to any person
- *  obtaining a copy of this software and associated documentation
- *  files (the 'Software'), to deal in the Software without
- *  restriction, including without limitation the rights to use,
- *  copy, modify, merge, publish, distribute, sublicense, and/or
- *  sell copies of the Software, and to permit persons to whom the
- *  Software is furnished to do so, subject to the following
- *  conditions:
- *
- *  The above copyright notice and this permission notice shall be
- *  included in all copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
- *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- *  OTHER DEALINGS IN THE SOFTWARE.
- *
+ *  @copyright  The MIT License.
+ *              Copyright (c) 2016, Yiwei Chiao.
+ *              All rights reserved.
  *  @section DESCRIPTION
  *
- *  The model of the crew.
+ *  The entry file of afk.
  */
 
 var init = () => {
-    $('#afk_toolbox').offset({ top: 120, left: 30 });
+    let tilesPane = document.getElementById('afk_tileset_pane');
+    let desktop = document.getElementById('afk_desktop');
+
+    /**
+     * 滑鼠游標移動追踪
+     *
+     * @function
+     * @param 'mousemove' : DOM 事件名
+     * @param e : DOM event 物件
+     * @returns {undefined}
+     */
+    desktop.addEventListener('mousemove', (e) => {
+        document.getElementById('afk_cursor_x').textContent = e.clientX;
+        document.getElementById('afk_cursor_y').textContent = e.clientY;
+    });
+
+    tilesPane.style.top = 120 + 'px';
+    tilesPane.style.left = 30 + 'px';
 } // init
 
 // afk.js

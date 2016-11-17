@@ -21,29 +21,29 @@
     <script src="js/afk.js"></script>
   </head>
   <body onload="init()">
-    <header class="site_header">
+    <header class="afk_site_header">
       <aside>
         <h1>AFK</h1>
         <h5>: <i>away from Kansas.</i></h5>
       </aside>
     </header>
-    <nav id="nav_main">
-      <ul class="nav_main" id="nav_home">
-        <li id="mnu_hamburger">
+    <nav id="afk_nav_main">
+      <ul class="afk_nav_main" id="afk_nav_home">
+        <li id="afk_mnu_hamburger">
           <p class="icono-hamburger"></p>
         </li>
       </ul>
     </nav>
-    <article class="contents" id="article">
-      <section class="card">
+    <article class="afk_paperpad" id="afk_desktop">
+      <section class="afk_card">
         <img src="png/preview2.png" alt="grass-and-water"
              width="80%" height="360">
       </section>
-      <section class="pane" id="afk_toolbox">
-        <header>
-          <div id="mnu_tiles">
+      <section class="afk_pane" id="afk_tileset_pane">
+        <header id="afk_tileset_pane_header">
+          <div id="afk_tileset_mnu_tiles">
             <p class="icono-tiles"></p>
-            Tiles Toolbox
+            Tileset
           </div>
         </header>
         <div class="cell">32</div>
@@ -56,10 +56,16 @@
         <div class="cell">08</div>
         <hr/>
       </section>
+      <section class="afk_status_bar" id="afk_foobar">
+        <span>
+          x:<span id="afk_cursor_x">0</span>
+          y:<span id="afk_cursor_y">0</span>
+        </span>
+      </section>
     </article>
-    <aside class="sidebar">
+    <aside class="afk_sidebar">
     </aside>
-    <footer class="site_footer">
+    <footer class="afk_site_footer">
       <h4>&copy; 2016, 佛光大學資訊應用學系</h4>
     </footer>
   </body>

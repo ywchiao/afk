@@ -17,7 +17,6 @@
       href="css/default.css"
       rel="stylesheet"
     />
-    <script src="libs/jquery.js"></script>
     <script src="js/afk.js"></script>
   </head>
   <body onload="init()">
@@ -36,8 +35,7 @@
     </nav>
     <article class="afk_paperpad" id="afk_desktop">
       <section class="afk_card">
-        <img src="png/preview2.png" alt="grass-and-water"
-             width="80%" height="360">
+        <img src="blocks1.png" alt="sprite-sheet" id="afk_sprite_sheet">
       </section>
       <section class="afk_pane" id="afk_tileset_pane">
         <header id="afk_tileset_pane_header">
@@ -46,15 +44,19 @@
             Tileset
           </div>
         </header>
-        <div class="cell">32</div>
-        <div class="cell">64</div>
-        <div class="cell">16</div>
-        <div class="cell">96</div>
-        <div class="cell">48</div>
-        <div class="cell">80</div>
-        <div class="cell">00</div>
-        <div class="cell">08</div>
-        <hr/>
+        <section id="afk_tileset_pad">
+          <canvas id="afk_tileset_page">
+          </canvas>
+          <aside id="afk_tileset_nav_panel">
+            <div class="afk_tileset_nav" id="afk_tileset_page_prev">
+              <p class="icono-caretLeft"></p>
+            </div>
+            <div class="afk_tileset_nav" id="afk_tileset_page_next">
+              <p class="icono-caretRight"></p>
+            </div>
+            <span id="afk_tileset_pagemark"></span>
+          </aside>
+        </section>
       </section>
       <section class="afk_status_bar" id="afk_foobar">
         <span>

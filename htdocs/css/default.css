@@ -267,7 +267,7 @@ button:last-child {
 .icono-hamburger {
   color: dimgrey;
   margin: 0px .5rem;
-  transform: scale(0.5); 
+  transform: scale(0.5);
 }
 
 #afk_mnu_hamburger{
@@ -333,11 +333,6 @@ button:last-child {
   z-index: 99;
 }
 
-.afk_pane header {
-  border-bottom: 1px solid black;
-  margin: 0 0 0.5rem 0;
-}
-
 .cell {
   display: inline-block;
   border-radius: 2px;
@@ -395,3 +390,52 @@ button:last-child {
   line-height: 3rem;
 }
 
+#afk_tileset_pane aside {
+  float: right;
+}
+
+#afk_tileset_nav_panel {
+  display: block;
+  width: 3em;
+  height: 10rem;
+  margin: 0rem;
+  padding: 3.6rem .25rem;
+}
+
+.icono-caretLeft {
+  color: black;
+  margin: 0 .25rem;
+}
+
+.icono-caretRight {
+  color: black;
+  margin: 0 .25rem;
+}
+
+.afk_tileset_nav {
+  padding: 1rem .25rem;
+  width: 2rem;
+  background-color: azure;
+  margin: 2rem 0rem;
+  opacity: .40;
+}
+
+.afk_tileset_nav:hover {
+  opacity: .80;
+}
+
+#afk_tileset_pad {
+  border-top: 2px groove azure;
+  border-bottom: 2px groove azure;
+  padding: .5em 0.25em;
+  margin: .5em 0em;
+  height: 20rem;
+}
+
+#afk_tileset_pagemark {
+  padding: .25rem .25rem;
+  width: 2rem;
+  margin: 2rem 1rem 2rem 0rem;
+  font-size: 1.4rem;
+  opacity: .45;
+}

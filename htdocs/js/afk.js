@@ -3,12 +3,10 @@
  *  @brief      The entry file of afk.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/11/2016 created.
- *  @date       11/17/2016 last modified.
+ *  @date       11/18/2016 last modified.
  *  @version    0.1.0
  *  @copyright  The MIT License.
- *              Copyright (c) 2016, Yiwei Chiao.
- *              All rights reserved.
- *  @section DESCRIPTION
+ *  @details
  *
  *  The entry file of afk.
  */
@@ -115,20 +113,19 @@ var init = () => {
         canvas_tiles.height = 200;
 
         let line_tiles = Math.floor(tileset.width / 34);
+        let tile_idx = (tilebook.page * tilebook.tiles);
 
         for (idx = 0; idx < tilebook.tiles; idx ++) {
-            tile_idx = (tilebook.page * tilebook.tiles) + idx;
-
-            width = (tile_idx % line_tiles) * 34;
-            height = Math.floor(tile_idx / line_tiles) * 34;
-
             c2d.drawImage(
                 tileset,
-                width, height,
+                (tile_idx % line_tiles) * 34,
+                Math.floor(tile_idx / line_tiles) * 34,
                 tilebook.tile.width, tilebook.tile.height,
                 (idx % 5) * 34, Math.floor(idx / 5) * 34,
                 tilebook.tile.width, tilebook.tile.height
             );
+
+            tile_idx += 1;
         }
 
         // 更新 tilesetPane 的頁碼標示

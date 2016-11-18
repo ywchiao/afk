@@ -90,7 +90,7 @@ select {
 @keyframes slide_in {
   from {width: 82.5%;}
   to {width: 100%;}
-}  
+}
 
 @keyframes slide_out {
   from {width: 100%;}
@@ -362,9 +362,10 @@ button:last-child {
 }
 
 .afk_paperpad {
-  position: relative;
+  position: absolute;
   display: inline-block;
   float: right;
+  height: 100%;
   width: 100%;
   z-index: 1;
   padding: 0;

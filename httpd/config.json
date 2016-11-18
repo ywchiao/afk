@@ -1,7 +1,7 @@
 {
      "/": "../htdocs/index.html",
-     "/css/icono.css": "../htdocs/css/icono.css",
-     "/css/default.css": "../htdocs/css/default.css",
-     "/js/afk.js": "../htdocs/js/afk.js",
-     "/blocks1.png": "../htdocs/png/spritelib/blocks1.png"
+     "/icono.css": "../htdocs/css/icono.css",
+     "/default.css": "../htdocs/css/default.css",
+     "/afk.js": "../htdocs/js/afk.js",
+     "/tileset.png": "../htdocs/png/spritelib/blocks1.png"
 }

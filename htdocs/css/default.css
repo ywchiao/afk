@@ -397,7 +397,7 @@ button:last-child {
 
 #afk_tileset_nav_panel {
   display: block;
-  width: 3em;
+  width: 3rem;
   height: 10rem;
   margin: 0rem;
   padding: 3.6rem .25rem;
@@ -428,8 +428,8 @@ button:last-child {
 #afk_tileset_pad {
   border-top: 2px groove azure;
   border-bottom: 2px groove azure;
-  padding: .5em 0.25em;
-  margin: .5em 0em;
+  padding: .5rem 0.25rem;
+  margin: .5rem 0rem;
   height: 20rem;
 }
 
@@ -440,3 +440,5 @@ button:last-child {
   font-size: 1.4rem;
   opacity: .45;
 }
+
+/* default.css */

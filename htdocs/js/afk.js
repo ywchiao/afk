@@ -3,7 +3,7 @@
  *  @brief      The entry file of afk.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/11/2016 created.
- *  @date       11/18/2016 last modified.
+ *  @date       11/24/2016 last modified.
  *  @version    0.1.0
  *  @copyright  The MIT License.
  *  @details
@@ -22,14 +22,6 @@
 var initTilesetPane = () => {
   let tilesetPane = document.getElementById('afk_tileset_pane');
   let tilesetPaneHeader = document.getElementById('afk_tileset_pane_header');
-
-  /**
-   * 滑鼠事件發生時的座標；初始化為 tilesetPane 的左上角座標
-   */
-  let anchor = {
-    left: 30,
-    top: 120
-  };
 
   /**
    * Tileset (Tile 貼圖) 的相關資料
@@ -51,13 +43,10 @@ var initTilesetPane = () => {
    */
   let moveTilesetPane = (e) => {
     tilesetPane.style.top =
-      parseInt(tilesetPane.style.top) + e.clientY - anchor.top + 'px';
+      parseInt(tilesetPane.style.top) + e.movementY + 'px';
 
     tilesetPane.style.left =
-      parseInt(tilesetPane.style.left) + e.clientX - anchor.left + 'px';
-
-    anchor.left = e.clientX;
-    anchor.top = e.clientY;
+      parseInt(tilesetPane.style.left) + e.movementX + 'px';
   }
 
   /**
@@ -69,9 +58,6 @@ var initTilesetPane = () => {
    * @returns {undefined}
    */
   tilesetPaneHeader.addEventListener('mousedown', (e) => {
-    anchor.left = e.clientX;
-    anchor.top = e.clientY;
-
     // 加上 TilesetPane 的 'mousemove' 事件處理程序；
     // 開始追踪滑鼠的移動
     tilesetPane.addEventListener('mousemove', moveTilesetPane);
@@ -158,8 +144,8 @@ var initTilesetPane = () => {
     drawTilesetPane(tilebook);
   });
 
-  tilesetPane.style.top = anchor.top + 'px';
-  tilesetPane.style.left = anchor.left + 'px';
+  tilesetPane.style.top = '120px';
+  tilesetPane.style.left = '30px';
 
   // 繪製 tilesetPane 的目前頁
   drawTilesetPane(tilebook);

@@ -46,21 +46,23 @@ var initDrawingPad = (tileset) => {
   // 斷續線由連續 4px，再空白 4px構成
   c2d.setLineDash([4, 4]);
 
+  // 開始記録格線的 paths
+  c2d.beginPath();
+
   // 畫 19 條鉛直斷續線
   for (var c = 1; c < 20; c ++) {
-    c2d.beginPath();
     c2d.moveTo(c * 32, 0);
     c2d.lineTo(c * 32, 320);
-    c2d.stroke();      
   }
 
   // 畫 9 條水平斷續線
   for (var r = 1; r < 10; r ++) {
-    c2d.beginPath();
     c2d.moveTo( 0, r * 32);
     c2d.lineTo(640, r * 32);
-    c2d.stroke();      
   }
+
+  // 繪出格線
+  c2d.stroke();      
 } // initDrawingPad
 
 /**

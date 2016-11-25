@@ -28,25 +28,34 @@
     </header>
     <nav id="afk_nav_main">
       <ul class="afk_nav_main" id="afk_nav_home">
-        <li id="afk_mnu_hamburger">
+        <li class="afk_aligned_right" id="afk_mnu_hamburger">
           <p class="icono-hamburger"></p>
         </li>
       </ul>
     </nav>
     <article class="afk_paperpad" id="afk_desktop">
       <section class="afk_card">
-        <img src="tileset.png" alt="sprite-sheet" id="afk_sprite_sheet">
+        <header id="afk_card_header">
+          <div class="afk_aligned_left" id="afk_drawingpad_mnu_tiles">
+            <p class="icono-tiles"></p>
+            地圖：第一景
+          </div>
+        </header>
+        <div class="afk_drawing_pad_wrapper">
+          <canvas class="afk_drawing_pad" id="afk_drawing_paper">
+          </canvas>
+        </div>
       </section>
       <section class="afk_pane" id="afk_tileset_pane">
         <header id="afk_tileset_pane_header">
-          <div id="afk_tileset_mnu_tiles">
+          <div class="afk_aligned_left" id="afk_tileset_mnu_tiles">
             <p class="icono-tiles"></p>
             Tileset
           </div>
         </header>
         <section id="afk_tileset_pad">
-          <canvas id="afk_tileset_page">
-          </canvas>
+          <div id="afk_tileset_page">
+          </div>
           <aside id="afk_tileset_nav_panel">
             <div class="afk_tileset_nav" id="afk_tileset_page_prev">
               <p class="icono-caretLeft"></p>
@@ -54,7 +63,7 @@
             <div class="afk_tileset_nav" id="afk_tileset_page_next">
               <p class="icono-caretRight"></p>
             </div>
-            <span id="afk_tileset_pagemark"></span>
+            <div id="afk_tileset_pagemark"></div>
           </aside>
         </section>
       </section>
@@ -62,6 +71,7 @@
         <span>
           x:<span id="afk_cursor_x">0</span>
           y:<span id="afk_cursor_y">0</span>
+          id:<span id="afk_tile_id">tile_none</span>
         </span>
       </section>
     </article>
@@ -70,5 +80,9 @@
     <footer class="afk_site_footer">
       <h4>&copy; 2016, 佛光大學資訊應用學系</h4>
     </footer>
+    <div id="afk_cache" style="display: none">
+      <img src="blocks.png" alt="tileset-blocks" id="afk_tileset_01">
+      <img src="blocks_2.png" alt="tileset-blocks2" id="afk_tileset_02">
+    </div>
   </body>
 </html>

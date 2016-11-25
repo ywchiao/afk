@@ -1,7 +1,8 @@
 {
-     "/": "../htdocs/index.html",
-     "/icono.css": "../htdocs/css/icono.css",
-     "/default.css": "../htdocs/css/default.css",
-     "/afk.js": "../htdocs/js/afk.js",
-     "/tileset.png": "../htdocs/png/spritelib/blocks1.png"
+  "/": "../htdocs/index.html",
+  "/icono.css": "../htdocs/css/icono.css",
+  "/default.css": "../htdocs/css/default.css",
+  "/afk.js": "../htdocs/js/afk.js",
+  "/blocks.png": "../htdocs/png/spritelib/blocks1.png",
+  "/blocks_2.png": "../htdocs/png/spritelib/blocks2.png"
 }

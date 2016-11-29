@@ -1,69 +1,16 @@
 /**
- *  @file       afk.js
- *  @brief      The entry file of afk.
+ *  @file       tileset_pane.js
+ *  @brief      the code for TilesetPane.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
- *  @date       11/11/2016 created.
- *  @date       11/25/2016 last modified.
+ *  @date       11/29/2016 created.
+ *  @date       11/29/2016 last modified.
  *  @version    0.1.0
  *  @copyright  The MIT License.
  *  @details
  *
- *  The entry file of afk.
+ *  The code for TilesetPane
  */
 'use strict';
-
-/**
- * DrawingPad 的初始化程序
- *
- * @name initDrawingPad
- * @function
- * @returns {undefined}
- */
-var initDrawingPad = (tileset) => {
-  let canvas = document.getElementById('afk_drawing_paper');
-  let c2d = canvas.getContext('2d');
-
-  // 設定繪圖圖紙的寬高
-  canvas.width = 640;
-  canvas.height = 320;
-
-  canvas.addEventListener('click', (e) => {
-    let x = Math.floor(e.offsetX / 32) * 32;
-    let y = Math.floor(e.offsetY / 32) * 32;
-
-    // 將目前選定的 tile 貼到地圖格子裡
-    if (tileset.tile.node instanceof HTMLCanvasElement) {
-      c2d.drawImage(tileset.tile.node, x, y);
-    }
-  });
-
-  // 將圖紙埴滿背景色
-  c2d.fillStyle = 'mintcream';
-  c2d.fillRect(0, 0, canvas.width, canvas.height);
-
-  // 準備一支可以畫 _斷續線_ 的畫筆
-  c2d.strokeStyle = 'black';
-  // 斷續線由連續 4px，再空白 4px構成
-  c2d.setLineDash([4, 4]);
-
-  // 開始記録格線的 paths
-  c2d.beginPath();
-
-  // 畫 19 條鉛直斷續線
-  for (var c = 1; c < 20; c ++) {
-    c2d.moveTo(c * 32, 0);
-    c2d.lineTo(c * 32, 320);
-  }
-
-  // 畫 9 條水平斷續線
-  for (var r = 1; r < 10; r ++) {
-    c2d.moveTo( 0, r * 32);
-    c2d.lineTo(640, r * 32);
-  }
-
-  // 繪出格線
-  c2d.stroke();      
-} // initDrawingPad
 
 /**
  * TilesetPane 的初始化程序
@@ -72,7 +19,7 @@ var initDrawingPad = (tileset) => {
  * @function
  * @returns {undefined}
  */
-var initTilesetPane = (tileset) => {
+export default (tileset) => {
   let canvas_tiles = document.getElementById('afk_tileset_page');
   let tilesetPane = document.getElementById('afk_tileset_pane');
   let tilesetPaneHeader = document.getElementById('afk_tileset_pane_header');
@@ -263,48 +210,4 @@ var initTilesetPane = (tileset) => {
   drawTilesetPane(tileset);
 } // initTilesetPane
 
-/**
- * afk 程式進入點
- *
- * @name init
- * @function
- * @returns {undefined}
- */
-var init = () => {
-  let desktop = document.getElementById('afk_desktop');
-
-  /**
-   * Tileset (Tile 貼圖) 的相關資料
-   */
-  let tileset = {
-    page: 0,        // 目前頁碼
-    tiles: [],      // 一頁能放的 tiles
-    tile: {         // tile 的尺寸; 32x32, 64x64 .. 等
-      width: 32,
-      height: 32,
-      node: null
-    },
-    source: 'afk_tileset_01',
-  };
-
-  /**
-   * 滑鼠游標移動追踪
-   *
-   * @function
-   * @param 'mousemove' : DOM 事件名
-   * @param e : DOM event 物件
-   * @returns {undefined}
-   */
-  desktop.addEventListener('mousemove', (e) => {
-    document.getElementById('afk_cursor_x').textContent = e.clientX;
-    document.getElementById('afk_cursor_y').textContent = e.clientY;
-  });
-
-  // 初始化 TilesetPane
-  initTilesetPane(tileset);
-
-  // 初始化 DragingPad
-  initDrawingPad(tileset);
-} // init
-
-// afk.js
+// tileset_pane.js

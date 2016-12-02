@@ -55,7 +55,7 @@ window.addEventListener('load', () => {
   // 初始化 TilesetPane
   initTilesetPane(tileset);
 
-  // 初始化 DragingPad
+  // 初始化 DrawingPad
   initDrawingPad(tileset);
 });
 

@@ -16,4 +16,4 @@ export default {
   sourceMap: 'true'
 };
 
-// build.js
+// rollup.config.js

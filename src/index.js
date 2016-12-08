@@ -3,9 +3,9 @@
  *  @brief      The entry file of afk.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/11/2016 created.
- *  @date       11/29/2016 last modified.
+ *  @date       12/08/2016 last modified.
  *  @version    0.1.0
- *  @copyright  The MIT License.
+ *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
  *
  *  The entry file of afk.

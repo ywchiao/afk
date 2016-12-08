@@ -3,9 +3,9 @@
  *  @brief      code regarding drawing_pad.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/29/2016 created.
- *  @date       11/29/2016 last modified.
+ *  @date       12/02/2016 last modified.
  *  @version    0.1.0
- *  @copyright  The MIT License.
+ *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
  *
  *  code regarding drawing_pad.
@@ -23,11 +23,14 @@ export default (tileset) => {
   let canvas = document.getElementById('afk_drawing_paper');
   let c2d = canvas.getContext('2d');
 
-  // 設定繪圖圖紙的寬高
-  canvas.width = 640;
-  canvas.height = 320;
-
-  canvas.addEventListener('click', (e) => {
+  /**
+   *  _貼地磚_ 函式
+   *
+   * @callback
+   * @param e : DOM event 物件
+   * @returns {undefined}
+   */
+  let tiling = (e) => {
     let x = Math.floor(e.offsetX / 32) * 32;
     let y = Math.floor(e.offsetY / 32) * 32;
 
@@ -35,6 +38,48 @@ export default (tileset) => {
     if (tileset.tile.node instanceof HTMLCanvasElement) {
       c2d.drawImage(tileset.tile.node, x, y);
     }
+  };
+
+  // 設定繪圖圖紙的寬高
+  canvas.width = 640;
+  canvas.height = 320;
+
+  /**
+   * 滑鼠 click；在當下位置，_貼_ 上目前選定的地磚
+   *
+   * @callback
+   * @param 'click' : DOM 事件名
+   * @param e : DOM event 物件
+   * @returns {undefined}
+   */
+  canvas.addEventListener('click', tiling)
+
+  /**
+   * 滑鼠按鈕在 _畫布_ (canvas) 上按下；開始 _貼地磚_ (tiling)
+   *
+   * @callback
+   * @param 'mousedown' : DOM 事件名
+   * @param e : DOM event 物件
+   * @returns {undefined}
+   */
+  canvas.addEventListener('mousedown', (e) => {
+    // 加上 drawing_pad 的 'mousemove' 事件處理程序；
+    // 開始跟著滑鼠的移動貼地磚
+    canvas.addEventListener('mousemove', tiling);
+  });
+
+  /**
+   * 滑鼠按鈕在 _畫布_ (canvas) 上放開；停止 _貼地磚_ (tiling)
+   *
+   * @callback
+   * @param 'mouseup' : DOM 事件名
+   * @param e : DOM event 物件
+   * @returns {undefined}
+   */
+  canvas.addEventListener('mouseup', (e) => {
+    // 移除 TilesetPane 的 'mousemove' 事件處理程序；
+    // 停止跟著滑鼠的移動貼地磚
+    canvas.removeEventListener('mousemove', tiling);
   });
 
   // 將圖紙埴滿背景色

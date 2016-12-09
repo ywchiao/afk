@@ -15,11 +15,14 @@
 import initTilesetPane from './tileset_pane.js';
 import initDrawingPad from './drawing_pad.js';
 
+// 載入 TileMap 類別
+import TileMap from './tile_map.js';
+
 /**
  * afk 程式進入點
  *
- * @name init
- * @function
+ * @callback
+ * @param 'load' : DOM 事件名
  * @returns {undefined}
  */
 window.addEventListener('load', () => {
@@ -39,10 +42,20 @@ window.addEventListener('load', () => {
     source: 'afk_tileset_01',
   };
 
+  // 設定 Tile 地圖的基本描述：長，寬，和名稱
+  let map_desc = {
+    width: 20,
+    height: 10,
+    name: 'scene_1'
+  };
+
+  // 產生一個新的 TileMap 物件
+  let scene_1 = new TileMap(map_desc);
+
   /**
    * 滑鼠游標移動追踪
    *
-   * @function
+   * @callback
    * @param 'mousemove' : DOM 事件名
    * @param e : DOM event 物件
    * @returns {undefined}
@@ -56,7 +69,7 @@ window.addEventListener('load', () => {
   initTilesetPane(tileset);
 
   // 初始化 DrawingPad
-  initDrawingPad(tileset);
+  initDrawingPad(tileset, scene_1);
 });
 
 // index.js

@@ -3,7 +3,7 @@
  *  @brief      the code for TilesetPane.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/29/2016 created.
- *  @date       12/08/2016 last modified.
+ *  @date       12/09/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -15,8 +15,8 @@
 /**
  * TilesetPane 的初始化程序
  *
- * @name initTilesetPane
  * @function
+ * @param {object} tileset 目前使用的 tileset 物件
  * @returns {undefined}
  */
 export default (tileset) => {
@@ -27,6 +27,8 @@ export default (tileset) => {
   /**
    * TilesetPane 的移動處理程序
    *
+   * @callback
+   * @param e : DOM event 物件；應為 'mousemove' 事件
    * @returns {undefined}
    */
   let moveTilesetPane = (e) => {
@@ -54,7 +56,7 @@ export default (tileset) => {
   /**
    * TilesetPane 拖曳結束 (drop)
    *
-   * @function
+   * @callback
    * @param 'mouseup' : DOM 事件名
    * @param e : DOM event 物件
    * @returns {undefined}
@@ -68,7 +70,7 @@ export default (tileset) => {
   /**
    * TilesetPane 的繪製程序
    *
-   * @param tileset : 存放目前 tileset 的相關資訊
+   * @param {object} tileset 存放目前 tileset 的相關資訊
    * @returns {undefined}
    */
   let drawTilesetPane = (tileset) => {
@@ -79,13 +81,19 @@ export default (tileset) => {
     let tile_idx = (tileset.page * tileset.tiles.length);
 
     for (var idx = 0; idx < tileset.tiles.length; idx ++) {
-      let tile = tileset.tiles[idx];
-      let c2d = tile.firstChild.getContext("2d");
+      let tile = tileset.tiles[idx].firstChild;
+      let ctx = tile.getContext("2d");
 
-      c2d.drawImage(
+      // 利用 HTML Object 的 _使用者自定義屬性_
+      // (HTML: data-* 和 Javascript: dataset.*)
+      // 儲存目前 tile 貼圖在原 tilesheet 裡的 (x, y) 座標
+      tile.dataset.x = (tile_idx % line_tiles) * 34 + 2;
+      tile.dataset.y = Math.floor(tile_idx / line_tiles) * 34 + 2;
+
+      ctx.drawImage(
         tilesheet,
-        (tile_idx % line_tiles) * 34 + 2,
-        Math.floor(tile_idx / line_tiles) * 34 + 2,
+        tile.dataset.x,
+        tile.dataset.y,
         tileset.tile.width, tileset.tile.height,
         0, 0,
         tileset.tile.width, tileset.tile.height
@@ -101,7 +109,7 @@ export default (tileset) => {
   /**
    * TilesetPane 換前一頁 (<) 事件處理程序
    *
-   * @function
+   * @callback
    * @param 'click' : DOM 事件名
    * @param e : DOM event 物件
    * @returns {undefined}
@@ -117,7 +125,7 @@ export default (tileset) => {
   /**
    * TilesetPane 換下一頁 (>) 事件處理程序
    *
-   * @function
+   * @callback
    * @param 'click' : DOM 事件名
    * @param e : DOM event 物件
    * @returns {undefined}
@@ -133,7 +141,7 @@ export default (tileset) => {
   /**
    * 追踪使用者選擇的 tile；並將 tile 編號顯示在狀態列
    *
-   * @function
+   * @callback
    * @param 'click' : DOM 事件名
    * @param e : DOM event 物件
    * @returns {undefined}

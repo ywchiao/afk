@@ -7,14 +7,14 @@
  * @returns {http.Server}
  */
 exports.config = (config) => {
-    const HTTP = require('http');
-    const ROUTER = require('./router.js').config(config);
+  const HTTP = require('http');
+  const ROUTER = require('./router.js').config(config);
 
-    return HTTP.createServer((request, response) => {
-        const SERVANT = require('./response.js').config(response);
+  return HTTP.createServer((request, response) => {
+    const SERVANT = require('./response.js').config(response);
 
-        ROUTER.route(request, SERVANT);
-    });
+    ROUTER.route(request, SERVANT);
+  });
 };
 
 // httpd.js

@@ -3,7 +3,7 @@
  *  @brief      code regarding drawing_pad.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/29/2016 created.
- *  @date       12/09/2016 last modified.
+ *  @date       12/16/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -11,6 +11,9 @@
  *  code regarding drawing_pad.
  */
 'use strict';
+
+import http from './ajax.js';
+import map_list from './map_list.js';
 
 /**
  * DrawingPad 的初始化程序
@@ -23,6 +26,22 @@
 export default (tileset, tilemap) => {
   let canvas = document.getElementById('afk_drawing_paper');
   let ctx = canvas.getContext('2d');
+
+  let btn_sync = document.getElementById('afk_btn_sync');
+  let btn_tiles = document.getElementById('afk_btn_tiles');
+
+  btn_sync.addEventListener('click', (e) => {
+    http.post('save', tilemap);
+
+    console.log(JSON.stringify(tilemap, null, 2));
+  });
+
+  btn_tiles.addEventListener('click', (e) => {
+    http.get('map_list').then((list) => {
+      console.log(JSON.stringify(list, null, 2));
+      map_list(JSON.parse(list));
+    });
+  });
 
   /**
    *  _貼地磚_ 函式

@@ -1,7 +1,7 @@
 {
   "width": 20,
   "height": 10,
-  "name": "scene_1",
+  "name": "scene_1tsff",
   "tiles": {
     "96x64": {
       "src": "afk_tileset_01",
@@ -156,26 +156,6 @@
     "288x64": {
       "src": "afk_tileset_01",
       "x": "206",
-      "y": "2"
-    },
-    "32x0": {
-      "src": "afk_tileset_01",
-      "x": "36",
-      "y": "2"
-    },
-    "64x0": {
-      "src": "afk_tileset_01",
-      "x": "36",
-      "y": "2"
-    },
-    "96x0": {
-      "src": "afk_tileset_01",
-      "x": "36",
-      "y": "2"
-    },
-    "128x0": {
-      "src": "afk_tileset_01",
-      "x": "36",
       "y": "2"
     }
   }

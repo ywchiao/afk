@@ -27,9 +27,15 @@ export default (tileset, tilemap) => {
   let canvas = document.getElementById('afk_drawing_paper');
   let ctx = canvas.getContext('2d');
 
+  // 取得 html 檔裡的地圖名稱 <input> 元素
+  let txt_input = document.getElementById('afk_map_input');
+  // 取得 html 檔裡的地圖名稱 <span> 元素
+  let txt_title = document.getElementById('afk_map_title');
+
   let btn_sync = document.getElementById('afk_btn_sync');
   let btn_tiles = document.getElementById('afk_btn_tiles');
 
+  // 取得並初始化伺服器端的地圖檔案列表
   http.get('map_list').then((list) => {
     let ul_maps = document.getElementById('afk_nav_maps');
     let map_list = JSON.parse(list);
@@ -51,6 +57,7 @@ export default (tileset, tilemap) => {
     });
   });
 
+  // 當使用者在 btn_tiles 上按下滑鼠，開始/關閉地圖檔案列表
   btn_tiles.addEventListener('click', (e) => {
     let ul_maps = document.getElementById('afk_nav_maps');
 
@@ -66,10 +73,49 @@ export default (tileset, tilemap) => {
     }
   });
 
+  // 當使用者在 btn_sync 上按下滑鼠，將目前的地圖資料送去伺服存檔
   btn_sync.addEventListener('click', (e) => {
     http.post('save', tilemap);
 
     console.log(JSON.stringify(tilemap, null, 2));
+  });
+
+  // 當使用者在 _地圖名稱_ 上按下滑鼠時，代表要 _編輯_ 地圖名稱
+  txt_title.addEventListener('click', (e) => {
+    document.getElementById('afk_cache').appendChild(txt_title);
+    document.getElementById('afk_map_caption').appendChild(txt_input);
+
+    txt_input.value = tilemap.name;
+
+    txt_input.focus();
+  });
+
+  /**
+   * 設定地圖檔名稱
+   *
+   * @name set_map_name
+   * @function
+   * @returns {undefined}
+   */
+  let set_map_name = () => {
+    document.getElementById('afk_cache').appendChild(txt_input);
+    document.getElementById('afk_map_caption').appendChild(txt_title);
+
+    txt_title.textContent = txt_input.value;
+
+    tilemap.name = txt_input.value;
+  };
+
+  // 當 <input> 失去 _鍵盤焦點_ (focus) 時觸發；結束地圖名稱編輯
+  txt_input.addEventListener('blur', (e) => {
+    set_map_name();
+  });
+
+  // 當使用者按下 <Enter> 時，觸發；結束地圖名稱編輯
+  txt_input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      set_map_name();
+    }
   });
 
   /**

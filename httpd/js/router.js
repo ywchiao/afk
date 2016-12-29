@@ -1,4 +1,18 @@
 /**
+ *  @file       router.js
+ *  @brief      The request handler for afk daemon.
+ *  @author     Yiwei Chiao (ywchiao@gmail.com)
+ *  @date       10/27/2016 created.
+ *  @date       12/28/2016 last modified.
+ *  @version    0.1.0
+ *  @copyright  MIT, (C) 2016 Yiwei Chiao
+ *  @details
+ *
+ *  The request handler for the afk daemon.
+ */
+'use strict';
+
+/**
  * 接受一個 config 檔的名稱，傳回一個 router 物件。
  *
  * @name config
@@ -8,13 +22,26 @@
  */
 exports.config = (config) => {
   const FS = require('fs')
+  const PREFIX = '../htdocs/json/';
   const TABLE = {
     // file type
     '.css': 'text/css',
     '.html': 'text/html',
     '.js': 'application/javascript',
+    '.json': 'application/json',
     '.png': 'image/png',
   };
+
+  FS.readdir(PREFIX, (err, files) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      files.forEach((file) => {
+        TABLE['/' + file] = PREFIX + file;
+      });
+    }
+  });
 
   FS.readFile(config, (err, data) => {
     if (err) {
@@ -23,7 +50,7 @@ exports.config = (config) => {
     else {
       const CONTENTS = JSON.parse(data);
 
-      for (key in CONTENTS) {
+      for (var key in CONTENTS) {
         TABLE[key] = CONTENTS[key];
       } // od
     } // esle

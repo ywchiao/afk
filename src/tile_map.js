@@ -3,7 +3,7 @@
  *  @brief      The tile_map structure.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       12/08/2016 created.
- *  @date       12/09/2016 last modified.
+ *  @date       12/28/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -44,11 +44,11 @@ export default class {
    * @param {object} map 地圖物件的基本描述：長，寬，和名稱
    * @returns {undefined}
    */
-  constructor (map) {
-    this.width = map.width;
-    this.height = map.height;
-    this.name = map.name;
-    this.tiles = {};
+  constructor ({ width, height, name, tiles = {} }) {
+    this.width = width;
+    this.height = height;
+    this.name = name;
+    this.tiles = tiles;
   }
 
   /**
@@ -73,6 +73,30 @@ export default class {
     let idx = dx + 'x' + dy;
 
     this.tiles[idx] = tile;
+  }
+
+  /**
+   * 依據 TileMap.tiles 裡的記錄，重繪 (repaint) 地圖
+   *
+   * @name repaint
+   * @function
+   * @returns {undefined}
+   */
+  repaint () {
+    let canvas = document.getElementById('afk_drawing_paper');
+    let ctx = canvas.getContext('2d');
+
+    for (var idx in this.tiles) {
+      let dest = idx.split('x');
+      let tile = this.tiles[idx];
+      let tilesheet = document.getElementById(tile.src);
+
+      ctx.drawImage(
+        tilesheet,
+        tile.x, tile.y, 32, 32,
+        parseInt(dest[0], 10),  parseInt(dest[1], 10), 32, 32
+      );
+    };
   }
 };
 

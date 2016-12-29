@@ -3,7 +3,7 @@
  *  @brief      code regarding drawing_pad.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/29/2016 created.
- *  @date       12/16/2016 last modified.
+ *  @date       12/29/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -13,7 +13,7 @@
 'use strict';
 
 import http from './ajax.js';
-import map_list from './map_list.js';
+import TileMap from './tile_map.js';
 
 /**
  * DrawingPad 的初始化程序
@@ -30,17 +30,46 @@ export default (tileset, tilemap) => {
   let btn_sync = document.getElementById('afk_btn_sync');
   let btn_tiles = document.getElementById('afk_btn_tiles');
 
+  http.get('map_list').then((list) => {
+    let ul_maps = document.getElementById('afk_nav_maps');
+    let map_list = JSON.parse(list);
+
+    map_list.forEach((map) => {
+      let li = document.createElement('li');
+
+      li.textContent = map;
+
+      li.addEventListener('click', (e) => {
+        http.get(map).then((data) => {
+          tilemap = new TileMap(JSON.parse(data));
+
+          tilemap.repaint();
+        });
+      });
+
+      ul_maps.appendChild(li);
+    });
+  });
+
+  btn_tiles.addEventListener('click', (e) => {
+    let ul_maps = document.getElementById('afk_nav_maps');
+
+    if (ul_maps.dataset.openned === 'true') {
+      document.getElementById('afk_cache').appendChild(ul_maps);
+
+      ul_maps.dataset.openned = 'false';
+    }
+    else {
+      btn_tiles.appendChild(ul_maps);
+
+      ul_maps.dataset.openned = 'true';
+    }
+  });
+
   btn_sync.addEventListener('click', (e) => {
     http.post('save', tilemap);
 
     console.log(JSON.stringify(tilemap, null, 2));
-  });
-
-  btn_tiles.addEventListener('click', (e) => {
-    http.get('map_list').then((list) => {
-      console.log(JSON.stringify(list, null, 2));
-      map_list(JSON.parse(list));
-    });
   });
 
   /**

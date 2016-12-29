@@ -3,7 +3,7 @@
  *  @brief      The request handler for afk daemon.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       12/16/2016 created.
- *  @date       12/16/2016 last modified.
+ *  @date       12/28/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details

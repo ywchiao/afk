@@ -29,24 +29,25 @@
     <nav id="afk_nav_main">
       <ul class="afk_nav_main" id="afk_nav_home">
         <li class="afk_aligned_right" id="afk_mnu_hamburger">
-          <p class="icono-hamburger"></p>
+          <span class="icono-hamburger"></span>
         </li>
       </ul>
     </nav>
     <article class="afk_paperpad" id="afk_desktop">
       <section class="afk_card">
-        <header class="afk_card_header" id="afk_drawingpad_mnu_tiles">
-          <div class="afk_aligned_left" id="afk_btn_tiles">
-            <p class="icono-tiles"></p>
+        <header class="afk_card_header">
+          <div class="afk_card_ops_left" id="afk_btn_tiles">
+            <span class="afk_aligned_left afk_data_icon icono-tiles">
+            </span>
           </div>
-          <div class="afk_aligned_left">
-             地圖：第一景
+          <div class="afk_aligned_left afk_pane_caption"> 
+            地圖：<span id="afk_map_title">第一景</span>
           </div>
           <div class="afk_card_ops" id="afk_btn_sync">
-            <p class="afk_data_icon icono-sync"></p>
+            <span class="afk_data_icon icono-sync"></span>
           </div>
-          <div class="afk_card_ops" id="afk_btn_document">
-            <p class="afk_data_icon icono-document"></p>
+          <div class="afk_card_ops" id="afk_btn_maps">
+            <span class="afk_aligned_right afk_data_icon icono-document"></span>
           </div>
         </header>
         <div class="afk_drawing_pad_wrapper">
@@ -56,8 +57,10 @@
       </section>
       <section class="afk_pane" id="afk_tileset_pane">
         <header id="afk_tileset_pane_header">
-          <div class="afk_aligned_left" id="afk_tileset_mnu_tiles">
-            <p class="icono-tiles"></p>
+          <div class="afk_aligned_left">
+            <span class="afk_aligned-left afk_data_icon icono-tiles"></span>
+          </div>
+          <div class="afk_aligned_left afk_pane_caption"> 
             Tileset
           </div>
         </header>
@@ -91,6 +94,7 @@
     <div id="afk_cache" style="display: none">
       <img src="blocks.png" alt="tileset-blocks" id="afk_tileset_01">
       <img src="blocks_2.png" alt="tileset-blocks2" id="afk_tileset_02">
+      <ul class="afk_popup_maps" id="afk_nav_maps"></ul>
     </div>
   </body>
 </html>

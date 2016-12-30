@@ -3,7 +3,7 @@
  *  @brief      The request handler for afk daemon.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       12/16/2016 created.
- *  @date       12/28/2016 last modified.
+ *  @date       12/30/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -32,14 +32,28 @@ module.exports = {
         break;
 
       case '/map_list':
-        let list = JSON.stringify(data, null, 2);
-
         FS.readdir(prefix, (err, files) => {
           if (err) {
             console.log(err);
           }
           else {
             servant.serve('application/json', JSON.stringify(files));
+          }
+        });
+
+        break;
+
+      case '/tile_sheet':
+        FS.readdir('../htdocs/png/spritelib/', (err, files) => {
+          if (err) {
+            console.log(err);
+          }
+          else {
+            servant.serve('application/json', JSON.stringify(files
+              .filter((file) => {
+                return file.substr(-4) === '.png';
+              })
+            ));
           }
         });
 

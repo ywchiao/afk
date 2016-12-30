@@ -293,6 +293,12 @@ button:last-child {
   transform: scale(0.5);
 }
 
+#afk_btn_maps {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin: 1rem 0rem;
+}
+
 #afk_btn_tiles {
   height: 1.2rem;
   width: 1.2rem;
@@ -492,6 +498,13 @@ button:last-child {
   transform: scale(0.5);
 }
 
+.icono-file {
+  color: black;
+  height: 2rem;
+  width: 2rem;
+  transform: scale(0.5);
+}
+
 .icono-sync {
   color: black;
   height: 2rem;
@@ -532,14 +545,14 @@ button:last-child {
 .afk_popup_maps {
   background-color: #ffe4c4;
   border-radius: 2px;
-  min-width: 7rem;
+  min-width: -moz-fit-content;
+  min-width: -webkit-fit-content;
   margin: 2rem 0 0 0;
   padding: .25rem;
 }
 
 .afk_popup_maps li {
   color: black;
-  min-width: 6rem;
   padding: 0px .25rem;
   opacity: .45;
 }

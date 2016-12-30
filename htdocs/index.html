@@ -36,7 +36,7 @@
     <article class="afk_paperpad" id="afk_desktop">
       <section class="afk_card">
         <header class="afk_card_header">
-          <div class="afk_card_ops_left" id="afk_btn_tiles">
+          <div class="afk_card_ops_left" id="afk_btn_maps">
             <span class="afk_aligned_left afk_data_icon icono-tiles">
             </span>
           </div>
@@ -46,8 +46,8 @@
           <div class="afk_card_ops" id="afk_btn_sync">
             <span class="afk_data_icon icono-sync"></span>
           </div>
-          <div class="afk_card_ops" id="afk_btn_maps">
-            <span class="afk_aligned_right afk_data_icon icono-document"></span>
+          <div class="afk_card_ops" id="afk_btn_file">
+            <span class="afk_aligned_right afk_data_icon icono-file"></span>
           </div>
         </header>
         <div class="afk_drawing_pad_wrapper">
@@ -58,10 +58,11 @@
       <section class="afk_pane" id="afk_tileset_pane">
         <header id="afk_tileset_pane_header">
           <div class="afk_aligned_left">
-            <span class="afk_aligned-left afk_data_icon icono-tiles"></span>
+            <span class="afk_aligned-left afk_data_icon icono-tiles">
+            </span>
           </div>
-          <div class="afk_aligned_left afk_pane_caption"> 
-            Tileset
+          <div class="afk_aligned_left afk_pane_caption" id="afk_tiles_caption">
+            Tileset：<span id="afk_tiles_title"></span>
           </div>
         </header>
         <section id="afk_tileset_pad">
@@ -95,6 +96,7 @@
       <img src="blocks.png" alt="tileset-blocks" id="afk_tileset_01">
       <img src="blocks_2.png" alt="tileset-blocks2" id="afk_tileset_02">
       <ul class="afk_popup_maps" id="afk_nav_maps"></ul>
+      <ul class="afk_popup_sheets" id="afk_nav_sheets"></ul>
       <input type="text" id="afk_map_input">
     </div>
   </body>

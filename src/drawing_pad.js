@@ -3,7 +3,7 @@
  *  @brief      code regarding drawing_pad.
  *  @author     Yiwei Chiao (ywchiao@gmail.com)
  *  @date       11/29/2016 created.
- *  @date       12/29/2016 last modified.
+ *  @date       12/30/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
  *  @details
@@ -32,8 +32,13 @@ export default (tileset, tilemap) => {
   // 取得 html 檔裡的地圖名稱 <span> 元素
   let txt_title = document.getElementById('afk_map_title');
 
+  let btn_file = document.getElementById('afk_btn_file');
+  let btn_maps = document.getElementById('afk_btn_maps');
   let btn_sync = document.getElementById('afk_btn_sync');
-  let btn_tiles = document.getElementById('afk_btn_tiles');
+
+  btn_file.addEventListener('click', (e) => {
+    alert('清除繪圖空間，呈現一個新的繪製版面');
+  });
 
   // 取得並初始化伺服器端的地圖檔案列表
   http.get('map_list').then((list) => {
@@ -50,6 +55,9 @@ export default (tileset, tilemap) => {
           tilemap = new TileMap(JSON.parse(data));
 
           tilemap.repaint();
+          
+          txt_input.value = tilemap.name;
+          txt_title.textContent = tilemap.name;
         });
       });
 
@@ -57,8 +65,8 @@ export default (tileset, tilemap) => {
     });
   });
 
-  // 當使用者在 btn_tiles 上按下滑鼠，開始/關閉地圖檔案列表
-  btn_tiles.addEventListener('click', (e) => {
+  // 當使用者在 btn_maps 上按下滑鼠，開始/關閉地圖檔案列表
+  btn_maps.addEventListener('click', (e) => {
     let ul_maps = document.getElementById('afk_nav_maps');
 
     if (ul_maps.dataset.openned === 'true') {
@@ -67,7 +75,7 @@ export default (tileset, tilemap) => {
       ul_maps.dataset.openned = 'false';
     }
     else {
-      btn_tiles.appendChild(ul_maps);
+      btn_maps.appendChild(ul_maps);
 
       ul_maps.dataset.openned = 'true';
     }

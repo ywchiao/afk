@@ -2,18 +2,17 @@
 import babel from 'rollup-plugin-babel';
 
 export default {
-  entry: 'src/index.js',
-  dest: 'htdocs/js/afk.js',
-  format: 'iife',
-  plugins: [
+  "input": "src/index.js",
+  "output": {
+    "file": "htdocs/js/afk.js",
+    "format": "iife",
+    "sourcemap": "true",
+  },
+  "plugins": [
     babel({
-      babelrc: false,
-      exclude: 'node_modules/**',
-      presets: [ [ 'es2015', { modules: false } ] ],
-      plugins: [ 'external-helpers' ]
+      "exclude": 'node_modules/**',
     })
   ],
-  sourceMap: 'true'
 };
 
 // rollup.config.js

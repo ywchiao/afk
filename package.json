@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/ywchiao/afk#readme",
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
-    "@rollup/plugin-babel": "^5.2.1",
-    "eslint": "^7.13.0",
+    "@babel/preset-env": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "eslint": "^7.14.0",
     "prettier-eslint-cli": "^5.0.0",
-    "rollup": "^2.33.2"
+    "rollup": "^2.34.1"
   }
 }

@@ -10,7 +10,6 @@ export default {
   },
   "plugins": [
     babel({
-<<<<<<< HEAD
       "babelrc": false,
       "babelHelpers": "bundled",
       "exclude": "node_modules/**",
@@ -27,9 +26,6 @@ export default {
         "@babel/proposal-class-properties",
         "@babel/proposal-object-rest-spread",
       ],
-=======
-      "exclude": 'node_modules/**',
->>>>>>> 716bde836583aa46b11d601e819c190a2395490b
     })
   ],
 };

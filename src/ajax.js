@@ -6,7 +6,7 @@
  *  @date       12/16/2016 last modified.
  *  @version    0.1.0
  *  @copyright  MIT, (C) 2016 Yiwei Chiao
- *  @details 
+ *  @details
  *
  *  The ajax module.
  */
@@ -17,8 +17,7 @@ let getXHR = (resolve, reject) => {
   xhr.onload = () => {
     if (xhr.status >= 200 && xhr.status < 300) {
       resolve(xhr.response);
-    }
-    else {
+    } else {
       reject(xhr.statusText);
     }
   };
@@ -31,21 +30,21 @@ let getXHR = (resolve, reject) => {
 };
 
 export default {
-  post (url, args) {
+  post(url, args) {
     let promise = new Promise((resolve, reject) => {
       let xhr = getXHR(resolve, reject);
 
-      xhr.open('post', url);
+      xhr.open("post", url);
       // for Firefox;
-      xhr.setRequestHeader('Accept', 'application/json');
-      xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       xhr.send(JSON.stringify(args));
     });
 
     return promise;
   },
 
-  get (url, args) {
+  get(url, args) {
     let promise = new Promise((resolve, reject) => {
       let xhr = getXHR(resolve, reject);
       let query = [];
@@ -59,14 +58,14 @@ export default {
         }
       }
 
-      url += (query.length) ? '?' + query.join('&') : '';
-      xhr.open('get', url);
-      xhr.setRequestHeader('Accept', 'application/json');
+      url += query.length ? "?" + query.join("&") : "";
+      xhr.open("get", url);
+      xhr.setRequestHeader("Accept", "application/json");
       xhr.send(null);
     });
 
     return promise;
-  }
+  },
 };
 
 // ajax.js

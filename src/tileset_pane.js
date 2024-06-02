@@ -10,7 +10,7 @@
  *
  *  The code for TilesetPane
  */
-'use strict';
+"use strict";
 
 /**
  * TilesetPane 的初始化程序
@@ -20,9 +20,9 @@
  * @returns {undefined}
  */
 export default (tileset) => {
-  let canvas_tiles = document.getElementById('afk_tileset_page');
-  let tilesetPane = document.getElementById('afk_tileset_pane');
-  let tilesetPaneHeader = document.getElementById('afk_tileset_pane_header');
+  let canvas_tiles = document.getElementById("afk_tileset_page");
+  let tilesetPane = document.getElementById("afk_tileset_pane");
+  let tilesetPaneHeader = document.getElementById("afk_tileset_pane_header");
 
   /**
    * TilesetPane 的移動處理程序
@@ -33,11 +33,11 @@ export default (tileset) => {
    */
   let moveTilesetPane = (e) => {
     tilesetPane.style.top =
-      parseInt(tilesetPane.style.top) + e.movementY + 'px';
+      parseInt(tilesetPane.style.top) + e.movementY + "px";
 
     tilesetPane.style.left =
-      parseInt(tilesetPane.style.left) + e.movementX + 'px';
-  }
+      parseInt(tilesetPane.style.left) + e.movementX + "px";
+  };
 
   /**
    * TilesetPane 拖曳 (drag) 開始
@@ -47,12 +47,12 @@ export default (tileset) => {
    * @param e : DOM event 物件
    * @returns {undefined}
    */
-  tilesetPaneHeader.addEventListener('mousedown', (e) => {
+  tilesetPaneHeader.addEventListener("mousedown", (e) => {
     // 加上 TilesetPane 的 'mousemove' 事件處理程序；
     // 開始追踪滑鼠的移動
-    tilesetPane.addEventListener('mousemove', moveTilesetPane);
+    tilesetPane.addEventListener("mousemove", moveTilesetPane);
   });
-      
+
   /**
    * TilesetPane 拖曳結束 (drop)
    *
@@ -61,10 +61,10 @@ export default (tileset) => {
    * @param e : DOM event 物件
    * @returns {undefined}
    */
-  tilesetPaneHeader.addEventListener('mouseup', (e) => {
+  tilesetPaneHeader.addEventListener("mouseup", (e) => {
     // 移除 TilesetPane 的 'mousemove' 事件處理程序；
     // 停止追踪滑鼠的移動
-    tilesetPane.removeEventListener('mousemove', moveTilesetPane);
+    tilesetPane.removeEventListener("mousemove", moveTilesetPane);
   });
 
   /**
@@ -78,9 +78,9 @@ export default (tileset) => {
     let pagemark = document.getElementById("afk_tileset_pagemark");
 
     let line_tiles = Math.floor(tilesheet.width / 34);
-    let tile_idx = (tileset.page * tileset.tiles.length);
+    let tile_idx = tileset.page * tileset.tiles.length;
 
-    for (var idx = 0; idx < tileset.tiles.length; idx ++) {
+    for (var idx = 0; idx < tileset.tiles.length; idx++) {
       let tile = tileset.tiles[idx].firstChild;
       let ctx = tile.getContext("2d");
 
@@ -94,17 +94,20 @@ export default (tileset) => {
         tilesheet,
         tile.dataset.x,
         tile.dataset.y,
-        tileset.tile.width, tileset.tile.height,
-        0, 0,
-        tileset.tile.width, tileset.tile.height
+        tileset.tile.width,
+        tileset.tile.height,
+        0,
+        0,
+        tileset.tile.width,
+        tileset.tile.height,
       );
 
       tile_idx += 1;
     }
 
     // 更新 tilesetPane 的頁碼標示
-    pagemark.textContent = (tileset.page + 1) + '/' + (5 + 1);
-  }
+    pagemark.textContent = tileset.page + 1 + "/" + (5 + 1);
+  };
 
   /**
    * TilesetPane 換前一頁 (<) 事件處理程序
@@ -114,13 +117,14 @@ export default (tileset) => {
    * @param e : DOM event 物件
    * @returns {undefined}
    */
-  document.getElementById('afk_tileset_page_prev').addEventListener(
-    'click', (e) => {
-    (tileset.page > 0) ? tileset.page -= 1 : 0;
+  document
+    .getElementById("afk_tileset_page_prev")
+    .addEventListener("click", (e) => {
+      tileset.page > 0 ? (tileset.page -= 1) : 0;
 
-    // 繪製 tilesetPane 的目前頁
-    drawTilesetPane(tileset);
-  });
+      // 繪製 tilesetPane 的目前頁
+      drawTilesetPane(tileset);
+    });
 
   /**
    * TilesetPane 換下一頁 (>) 事件處理程序
@@ -130,13 +134,14 @@ export default (tileset) => {
    * @param e : DOM event 物件
    * @returns {undefined}
    */
-  document.getElementById('afk_tileset_page_next').addEventListener(
-    'click', (e) => {
-    (tileset.page < 5) ? tileset.page += 1 : 5;
+  document
+    .getElementById("afk_tileset_page_next")
+    .addEventListener("click", (e) => {
+      tileset.page < 5 ? (tileset.page += 1) : 5;
 
-    // 繪製 tilesetPane 的目前頁
-    drawTilesetPane(tileset);
-  });
+      // 繪製 tilesetPane 的目前頁
+      drawTilesetPane(tileset);
+    });
 
   /**
    * 追踪使用者選擇的 tile；並將 tile 編號顯示在狀態列
@@ -146,8 +151,8 @@ export default (tileset) => {
    * @param e : DOM event 物件
    * @returns {undefined}
    */
-  canvas_tiles.addEventListener('click', (e) => {
-    document.getElementById('afk_tile_id').textContent = e.target.id;
+  canvas_tiles.addEventListener("click", (e) => {
+    document.getElementById("afk_tile_id").textContent = e.target.id;
     if (e.target instanceof HTMLCanvasElement) {
       tileset.tile.node = e.target;
     }
@@ -165,31 +170,31 @@ export default (tileset) => {
    *   * 程式內部，記錄在 tileset.tiles[] 陣列裡
    *   * HTML裡，視覺呈現上，放在 afk_tileset_page 下
    **/
-  for (var i = 0; i < 30; i ++) {
+  for (var i = 0; i < 30; i++) {
     let tile = null;
-    
+
     // 第一個 tile 節點，設定基本屬性
     if (i === 0) {
-      let icon = document.createElement('canvas');
+      let icon = document.createElement("canvas");
 
       // 設定 tile 貼圖的大小為 32x32
       icon.width = 32;
       icon.height = 32;
 
-      tile = document.createElement('div');
+      tile = document.createElement("div");
 
       // 將 tile 貼圖的 <canvas> 加入成為對應 <div> 的子節點
       tile.appendChild(icon);
 
       // 設定 <div> 的 css class 屬性，好利用 css 的特效
-      tile.className = 'afk_highlight_border';
+      tile.className = "afk_highlight_border";
 
       // 設定 tile 大小為 32x32
       tile.width = 32;
       tile.height = 32;
 
       // 設定 tile 的 css 位置屬性以 parent node 為參考點
-      tile.style.position = 'absolute';
+      tile.style.position = "absolute";
     }
     // 其餘 tile 節點，全部都是第一個節點的 clone (複製品)
     else {
@@ -197,11 +202,11 @@ export default (tileset) => {
     }
 
     // 設定 <canvas> 的 id；也就是 tile_id
-    tile.firstChild.id = 'tile_' + ('0' + i).slice(-2);
-    
+    tile.firstChild.id = "tile_" + ("0" + i).slice(-2);
+
     // 設定 tile 的位置
-    tile.style.left = ((i % 5) * 40) + 'px';
-    tile.style.top = (Math.floor(i / 5) * 40) + 'px';
+    tile.style.left = (i % 5) * 40 + "px";
+    tile.style.top = Math.floor(i / 5) * 40 + "px";
 
     // tile 全部記録在 tileset.tiles 裡
     tileset.tiles[i] = tile;
@@ -211,11 +216,11 @@ export default (tileset) => {
   } // od
 
   // 設定 TilesetPane 的初始位置
-  tilesetPane.style.top = '120px';
-  tilesetPane.style.left = '30px';
+  tilesetPane.style.top = "120px";
+  tilesetPane.style.left = "30px";
 
   // 繪製 tilesetPane 的目前頁
   drawTilesetPane(tileset);
-} // initTilesetPane
+}; // initTilesetPane
 
 // tileset_pane.js

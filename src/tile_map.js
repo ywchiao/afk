@@ -10,7 +10,7 @@
  *
  *  The tile_map data structure.
  */
-'use strict';
+"use strict";
 
 /**
  * TileMap 類別。物件結構如下：
@@ -44,7 +44,7 @@ export default class {
    * @param {object} map 地圖物件的基本描述：長，寬，和名稱
    * @returns {undefined}
    */
-  constructor ({ width, height, name, tiles = {} }) {
+  constructor({ width, height, name, tiles = {} }) {
     this.width = width;
     this.height = height;
     this.name = name;
@@ -63,14 +63,14 @@ export default class {
    * @param {number} sy 來源貼圖在 tileset 裡的 y 座標
    * @returns {undefined}
    */
-  setTile (dx, dy, tileset, sx, sy) {
+  setTile(dx, dy, tileset, sx, sy) {
     let tile = {
-      'src': tileset,
-      'x': sx,
-      'y': sy
+      src: tileset,
+      x: sx,
+      y: sy,
     };
 
-    let idx = dx + 'x' + dy;
+    let idx = dx + "x" + dy;
 
     this.tiles[idx] = tile;
   }
@@ -82,22 +82,28 @@ export default class {
    * @function
    * @returns {undefined}
    */
-  repaint () {
-    let canvas = document.getElementById('afk_drawing_paper');
-    let ctx = canvas.getContext('2d');
+  repaint() {
+    let canvas = document.getElementById("afk_drawing_paper");
+    let ctx = canvas.getContext("2d");
 
     for (var idx in this.tiles) {
-      let dest = idx.split('x');
+      let dest = idx.split("x");
       let tile = this.tiles[idx];
       let tilesheet = document.getElementById(tile.src);
 
       ctx.drawImage(
         tilesheet,
-        tile.x, tile.y, 32, 32,
-        parseInt(dest[0], 10),  parseInt(dest[1], 10), 32, 32
+        tile.x,
+        tile.y,
+        32,
+        32,
+        parseInt(dest[0], 10),
+        parseInt(dest[1], 10),
+        32,
+        32,
       );
-    };
+    }
   }
-};
+}
 
 // tile_map.js
